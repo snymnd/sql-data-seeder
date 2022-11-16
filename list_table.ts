@@ -32,6 +32,12 @@ const supplier = {
   sp_alamat: faker.address.streetAddress(),
 }
 
+const transaksi_penjualan = {
+  t_penjualan_id: i,
+  t_penjualan_waktu: format(faker.date.past(1), 'yyyy-MM-dd'),
+  t_penjualan_total_harga: faker.commerce.price(),
+}
+
 const barang = {
   brg_id: i,
   brg_nama: faker.commerce.product() ,
