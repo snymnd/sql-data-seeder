@@ -12,7 +12,7 @@ const pegawai = {
     pg_alamat: faker.address.streetAddress(),
     pg_no_telp: faker.phone.phoneNumber('+628#########'),
     pg_password: faker.internet.password(),
-    bagian: faker.random.arrayElement([
+    pg_bagian: faker.random.arrayElement([
         'BAGIAN 1',
         'BAGIAN 2',
         'BAGIAN 3',
