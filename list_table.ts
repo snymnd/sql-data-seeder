@@ -24,3 +24,13 @@ const transaksi_pembelian = {
   t_pembelian_waktu: format(faker.date.past(1), 'yyyy-MM-dd'),
   t_pembelian_total_harga: faker.commerce.price(),
 }
+
+const barang = {
+  brg_id: i,
+  brg_nama: faker.commerce.product() ,
+  brg_harga_jual: faker.commerce.price(),
+  brg_harga_beli: faker.commerce.price(),
+  brg_berat: faker.random.numeric(),
+  jumlah_stok: faker.random.numeric(),
+  diskon: faker.random.numeric(),
+}
