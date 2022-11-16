@@ -14,9 +14,11 @@ for (let i = 1; i <= 1000; i++) {
       .insert()
       .into(tableName)
       .setFields({
-          t_pembelian_id: i,
-          t_pembelian_waktu: format(faker.date.past(1), 'yyyy-MM-dd'),
-          t_pembelian_total_harga: faker.commerce.price(),
+        t_pembelian_id: i,
+        pg_id: i, 
+        sp_id: i,
+        t_pembelian_waktu: format(faker.date.past(1), 'yyyy-MM-dd'),
+        t_pembelian_total_harga: faker.commerce.price(),
       })
       .toString();
   
