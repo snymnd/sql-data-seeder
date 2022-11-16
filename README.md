@@ -13,5 +13,5 @@ yarn
 
 3. Run the index.js
 ```
-node ${tableName}.ts
+node src/${tableName}.ts
 ```
