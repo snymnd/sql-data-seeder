@@ -2,6 +2,7 @@
   "dependencies": {
     "date-fns": "^2.29.3",
     "faker": "^6.6.6",
-    "knex": "^2.3.0"
+    "knex": "^2.3.0",
+    "squel": "^5.13.0"
   }
 }
