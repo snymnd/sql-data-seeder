@@ -1,4 +1,4 @@
-import format from 'date-fns/format';
+import format from 'date-fns/format/index.js';
 import { faker } from '@faker-js/faker/locale/id_ID'
 
 faker.locale = 'id_ID';
@@ -33,4 +33,13 @@ const barang = {
   brg_berat: faker.random.numeric(),
   jumlah_stok: faker.random.numeric(),
   diskon: faker.random.numeric(),
+}
+
+const pelanggan = {
+  pg_id: i,
+  pg_nama: faker.name.findName(),
+  pg_no_telp: faker.phone.phoneNumber('+628#########'),
+  pg_email: faker.internet.email(),
+  pg_tgl_daftar: format(faker.date.past(1), 'yyyy-MM-dd'),
+  pg_alamat: faker.address.streetAddress(),
 }
