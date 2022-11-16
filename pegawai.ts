@@ -1,5 +1,5 @@
 import squel from 'squel';
-import faker from 'faker/locale/id_ID';
+import { faker } from '@faker-js/faker/locale/id_ID'
 import * as fs from 'fs';
 
 faker.locale = 'id_ID';
@@ -29,7 +29,7 @@ for (let i = 1; i <= 1000; i++) {
         pg_alamat: faker.address.streetAddress(),
         pg_no_telp: faker.phone.phoneNumber('+628#########'),
         pg_password: faker.internet.password(),
-        pg_bagian: faker.random.arrayElement([
+        pg_bagian: faker.helpers.arrayElement([
             'BAGIAN 1',
             'BAGIAN 2',
             'BAGIAN 3',

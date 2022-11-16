@@ -1,5 +1,5 @@
-import format from 'date-fns/format'
-import faker from 'faker/locale/id_ID'
+import format from 'date-fns/format';
+import { faker } from '@faker-js/faker/locale/id_ID'
 
 faker.locale = 'id_ID';
 
@@ -12,7 +12,7 @@ const pegawai = {
     pg_alamat: faker.address.streetAddress(),
     pg_no_telp: faker.phone.phoneNumber('+628#########'),
     pg_password: faker.internet.password(),
-    pg_bagian: faker.random.arrayElement([
+    pg_bagian: faker.helpers.arrayElement([
         'BAGIAN 1',
         'BAGIAN 2',
         'BAGIAN 3',
