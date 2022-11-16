@@ -8,5 +8,8 @@
     "faker": "^6.6.6",
     "knex": "^2.3.0",
     "squel": "^5.13.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3"
   }
 }
