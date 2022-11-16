@@ -25,6 +25,13 @@ const transaksi_pembelian = {
   t_pembelian_total_harga: faker.commerce.price(),
 }
 
+const supplier = {
+  sp_id: i,
+  sp_nama: faker.name.fullName(),
+  sp_no_telp: faker.phone.phoneNumber('+628#########'),
+  sp_alamat: faker.address.streetAddress(),
+}
+
 const barang = {
   brg_id: i,
   brg_nama: faker.commerce.product() ,
