@@ -43,3 +43,12 @@ const pelanggan = {
   pg_tgl_daftar: format(faker.date.past(1), 'yyyy-MM-dd'),
   pg_alamat: faker.address.streetAddress(),
 }
+
+const jenis_barang = {
+  jb_id: i,
+  jb_nama: faker.helpers.arrayElement([
+    'JENIS 1',
+    'JENIS 2',
+    'JENIS 3',
+  ]),
+}
