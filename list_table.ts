@@ -8,9 +8,9 @@ const i = 0;
 const pegawai = {
     pg_id: i,
     pg_nama: faker.name.findName(),
-    pg_nik: faker.phone.phoneNumber('################'),
+    pg_nik: faker.phone.number('################'),
     pg_alamat: faker.address.streetAddress(),
-    pg_no_telp: faker.phone.phoneNumber('+628#########'),
+    pg_no_telp: faker.phone.number('+628#########'),
     pg_password: faker.internet.password(),
     pg_bagian: faker.helpers.arrayElement([
         'BAGIAN 1',
@@ -28,7 +28,7 @@ const transaksi_pembelian = {
 const supplier = {
   sp_id: i,
   sp_nama: faker.name.fullName(),
-  sp_no_telp: faker.phone.phoneNumber('+628#########'),
+  sp_no_telp: faker.phone.number('+628#########'),
   sp_alamat: faker.address.streetAddress(),
 }
 
@@ -51,7 +51,7 @@ const barang = {
 const pelanggan = {
   pg_id: i,
   pg_nama: faker.name.findName(),
-  pg_no_telp: faker.phone.phoneNumber('+628#########'),
+  pg_no_telp: faker.phone.number('+628#########'),
   pg_email: faker.internet.email(),
   pg_tgl_daftar: format(faker.date.past(1), 'yyyy-MM-dd'),
   pg_alamat: faker.address.streetAddress(),

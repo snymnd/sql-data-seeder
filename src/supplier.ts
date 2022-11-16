@@ -15,7 +15,7 @@ for (let i = 1; i <= 1000; i++) {
       .setFields({
         sp_id: i,
         sp_nama: faker.name.fullName(),
-        sp_no_telp: faker.phone.phoneNumber('+628#########'),
+        sp_no_telp: faker.phone.number('+628#########'),
         sp_alamat: faker.address.streetAddress(),
       })
       .toString();

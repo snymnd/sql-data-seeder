@@ -24,10 +24,10 @@ for (let i = 1; i <= 1000; i++) {
       .into(tableName)
       .setFields({
         pg_id: i,
-        pg_nama: faker.name.findName(),
-        pg_nik: faker.phone.phoneNumber('################'),
+        pg_nama: faker.name.fullName(),
+        pg_nik: faker.phone.number('################'),
         pg_alamat: faker.address.streetAddress(),
-        pg_no_telp: faker.phone.phoneNumber('+628#########'),
+        pg_no_telp: faker.phone.number('+628#########'),
         pg_password: faker.internet.password(),
         pg_bagian: faker.helpers.arrayElement([
             'BAGIAN 1',
