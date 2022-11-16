@@ -18,3 +18,9 @@ const pegawai = {
         'BAGIAN 3',
       ]),
 }
+
+const transaksi_pembelian = {
+  t_pembelian_id: i,
+  t_pembelian_waktu: format(faker.date.past(1), 'yyyy-MM-dd'),
+  t_pembelian_total_harga: faker.commerce.price(),
+}
