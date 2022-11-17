@@ -5,17 +5,17 @@ import format from 'date-fns/format/index.js';
 
 faker.locale = 'id_ID';
 
-const tableName = 'jenis_barang';
+const tableName = 'item_category';
 
 for (let i = 1; i <= 4; i++) {
-    console.log('🚀 ~ file: jenis_barang.ts ~ line 9 ~ i', i);
+    console.log('🚀 ~ file: item_category.ts ~ line 9 ~ i', i);
   
     const content = squel
       .insert()
       .into(tableName)
       .setFields({
-        jb_id: i,
-        jb_nama: faker.helpers.arrayElement([ 
+        ic_id: i,
+        ic_name: faker.helpers.arrayElement([ 
           'Alat Menulis',
           'Alat Menghapus',
           'Peralatan Pendukung',

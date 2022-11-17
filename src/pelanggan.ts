@@ -5,21 +5,21 @@ import format from 'date-fns/format/index.js';
 
 faker.locale = 'id_ID';
 
-const tableName = 'pelanggan';
+const tableName = 'customer';
 
 for (let i = 1; i <= 100; i++) {
-    console.log('🚀 ~ file: pelanggan.ts ~ line 9 ~ i', i);
+    console.log('🚀 ~ file: customer.ts ~ line 9 ~ i', i);
   
     const content = squel
       .insert()
       .into(tableName)
       .setFields({
-        pl_id: i,
-        pl_nama: faker.name.fullName(),
-        pl_no_telp: faker.phone.number('+628#########'),
-        pl_email: faker.internet.email(),
-        pl_tgl_daftar: format(faker.date.past(1), 'yyyy-MM-dd'),
-        pl_alamat: faker.address.streetAddress(),
+        cust_id: i,
+        cust_name: faker.name.fullName(),
+        cust_phone_num: faker.phone.number('+628#########'),
+        cust_email: faker.internet.email(),
+        cust_registration_date: format(faker.date.past(1), 'yyyy-MM-dd'),
+        cust_address: faker.address.streetAddress(),
       })
       .toString();
   

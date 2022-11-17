@@ -4,7 +4,7 @@ import * as fs from 'fs';
 
 faker.locale = 'id_ID';
 
-const tableName = 'pegawai';
+const tableName = 'employee';
 
 let a = 0;
 let flag;
@@ -23,12 +23,12 @@ for (let i = 1; i <= 100; i++) {
       .insert()
       .into(tableName)
       .setFields({
-        pg_id: i,
-        pg_nama: faker.name.fullName(),
-        pg_nik: faker.phone.number('################'),
-        pg_alamat: faker.address.streetAddress(),
-        pg_no_telp: faker.phone.number('+628#########'),
-        pg_bagian: faker.helpers.arrayElement([ 
+        emp_id: i,
+        emp_name: faker.name.fullName(),
+        emp_nik: faker.phone.number('################'),
+        emp_address: faker.address.streetAddress(),
+        emp_phone_num: faker.phone.number('+628#########'),
+        emp_division: faker.helpers.arrayElement([ 
             'Magang',
             'Karyawan Junior',
             'Karyawan Senior',

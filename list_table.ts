@@ -5,13 +5,13 @@ faker.locale = 'id_ID';
 
 const i = 0;
 
-const pegawai = {
-    pg_id: i,
-    pg_nama: faker.name.fullName(),
-    pg_nik: faker.phone.number('################'),
-    pg_alamat: faker.address.streetAddress(),
-    pg_no_telp: faker.phone.number('+628#########'),
-    pg_bagian: faker.helpers.arrayElement([ 
+const employee = {
+    emp_id: i,
+    emp_name: faker.name.fullName(),
+    emp_nik: faker.phone.number('################'),
+    emp_address: faker.address.streetAddress(),
+    emp_phone_num: faker.phone.number('+628#########'),
+    emp_division: faker.helpers.arrayElement([ 
         'Magang',
         'Karyawan Junior',
         'Karyawan Senior',
@@ -19,52 +19,52 @@ const pegawai = {
       ]),
 }
 
-const transaksi_pembelian = {
-  t_pembelian_id: i,
-  pg_id: faker.datatype.number({ min: 1, max: 100 }), 
-  sp_id: faker.datatype.number({ min: 1, max: 100 }), 
-  t_pembelian_waktu: format(faker.date.past(1), "yyyy-MM-dd'T'HH:mm:ss"),
-  total_harga_pembelian: faker.commerce.price(1000, 100000), 
+const purchase_transaction = {
+  purchase_t_id: i,
+  emp_id: faker.datatype.number({ min: 1, max: 100 }), 
+  sup_id: faker.datatype.number({ min: 1, max: 100 }), 
+  purchase_t_time: format(faker.date.past(1), "yyyy-MM-dd'T'HH:mm:ss"),
+  purchase_total_price: faker.commerce.price(1000, 100000), 
 }
 
 const supplier = {
-  sp_id: i,
-  sp_nama: faker.name.fullName(),
-  sp_no_telp: faker.phone.number('+628#########'),
-  sp_alamat: faker.address.streetAddress(),
+  sup_id: i,
+  sup_name: faker.name.fullName(),
+  sup_phone_num: faker.phone.number('+628#########'),
+  sup_address: faker.address.streetAddress(),
 }
 
-const transaksi_penjualan = {
-  t_penjualan_id: i,
-  pg_id: faker.datatype.number({ min: 1, max: 100 }), 
-  pl_id: faker.datatype.number({ min: 1, max: 100 }), 
-  t_penjualan_waktu: format(faker.date.recent(1), "yyyy-MM-dd'T'HH:mm:ss"),
-  total_harga_penjualan: faker.commerce.price(1000, 100000),
+const sales_transaction = {
+  sales_t_id: i,
+  emp_id: faker.datatype.number({ min: 1, max: 100 }), 
+  cust_id: faker.datatype.number({ min: 1, max: 100 }), 
+  sales_t_time: format(faker.date.recent(1), "yyyy-MM-dd'T'HH:mm:ss"),
+  sales_total_price: faker.commerce.price(1000, 100000),
 }
 
-const barang = {
-  brg_id: i,
-  jb_id: faker.datatype.number({ min: 1, max: 4 }), 
-  brg_nama: faker.commerce.product() , //array of element instead?
-  brg_harga_jual: faker.commerce.price(), //need rules to harga beli <
-  brg_harga_beli: faker.commerce.price(), //need rules to harga jual >
-  brg_berat: faker.datatype.number(10), 
-  jumlah_stok: faker.datatype.number(1000),
-  diskon: faker.datatype.number({ max: 100 }), 
+const item = {
+  item_id: i,
+  ic_id: faker.datatype.number({ min: 1, max: 4 }), 
+  item_name: faker.commerce.product() , //array of element instead?
+  item_sale_price: faker.commerce.price(), //need rules to harga beli <
+  item_purchase_price: faker.commerce.price(), //need rules to harga jual >
+  item_weight: faker.datatype.number(10), 
+  item_stock: faker.datatype.number(1000),
+  discount: faker.datatype.number({ max: 100 }), 
 }
 
-const pelanggan = { 
-  pl_id: i,
-  pl_nama: faker.name.fullName(),
-  pl_no_telp: faker.phone.number('+628#########'),
-  pl_email: faker.internet.email(),
-  pl_tgl_daftar: format(faker.date.past(1), 'yyyy-MM-dd'),
-  pl_alamat: faker.address.streetAddress(),
+const customer = { 
+  cust_id: i,
+  cust_name: faker.name.fullName(),
+  cust_phone_num: faker.phone.number('+628#########'),
+  cust_email: faker.internet.email(),
+  cust_registration_date: format(faker.date.past(1), 'yyyy-MM-dd'),
+  cust_address: faker.address.streetAddress(),
 }
 
-const jenis_barang = {
-  jb_id: i,
-  jb_nama: faker.helpers.arrayElement([ 
+const item_category = {
+  ic_id: i,
+  ic_name: faker.helpers.arrayElement([ 
     'Alat Menulis',
     'Alat Menghapus',
     'Peralatan Pendukung',

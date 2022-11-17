@@ -1,75 +1,75 @@
-CREATE TABLE IF NOT EXISTS Pegawai (
-	pg_id char(4) NOT NULL PRIMARY KEY,
-    pg_nama varchar(50) NOT NULL,
-    pg_nik char(16) NOT NULL,
-    pg_alamat varchar(200) NOT NULL,
-    pg_no_telp varchar(15) NOT NULL,
-    pg_bagian varchar(50) NOT NULL
+CREATE TABLE IF NOT EXISTS employee (
+	emp_id char(4) NOT NULL PRIMARY KEY,
+    emp_name varchar(50) NOT NULL,
+    emp_nik char(16) NOT NULL,
+    emp_address varchar(200) NOT NULL,
+    emp_phone_num varchar(15) NOT NULL,
+    emp_division varchar(50) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS transaksi_pembelian (
-	t_pembelian_id char(4) NOT NULL PRIMARY KEY,
-    t_pembelian_waktu datetime NOT NULL,
-    total_harga_pembelian float NOT NULL
+CREATE TABLE IF NOT EXISTS purchase_transaction (
+	purchase_t_id char(4) NOT NULL PRIMARY KEY,
+    purchase_t_time datetime NOT NULL,
+    purchase_total_price float NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS supplier (
-	sp_id char(4) NOT NULL PRIMARY KEY,
-    sp_nama char(50) NOT NULL,
-    sp_no_telp varchar(15) NOT NULL,
-    sp_alamat varchar(200) NOT NULL
+	sup_id char(4) NOT NULL PRIMARY KEY,
+    sup_name char(50) NOT NULL,
+    sup_phone_num varchar(15) NOT NULL,
+    sup_address varchar(200) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS transaksi_penjualan (
-	t_penjualan_id char(4) NOT NULL PRIMARY KEY,
-    t_penjualan_waktu datetime NOT NULL,
-    total_harga_penjualan float NOT NULL
+CREATE TABLE IF NOT EXISTS sales_transaction (
+	sales_t_id char(4) NOT NULL PRIMARY KEY,
+    sales_t_time datetime NOT NULL,
+    sales_total_price float NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS barang (
-	brg_id char(4) NOT NULL PRIMARY KEY,
-    brg_nama varchar(50) NOT NULL,
-    brg_harga_jual float NOT NULL,
-    brg_harga_beli float NOT NULL,
-    brg_berat varchar(20) NOT NULL,
-    jumlah_stok int NOT NULL,
-    diskon int NOT NULL
+CREATE TABLE IF NOT EXISTS item (
+	item_id char(4) NOT NULL PRIMARY KEY,
+    item_name varchar(50) NOT NULL,
+    item_sale_price float NOT NULL,
+    item_purchase_price float NOT NULL,
+    item_weight varchar(20) NOT NULL,
+    item_stock int NOT NULL,
+    discount int NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS pelanggan (
-	pl_id char(4) NOT NULL PRIMARY KEY,
-    pl_nama varchar(50) NOT NULL,
-    pl_no_telp varchar(15) NOT NULL,
-    pl_email varchar(50) NOT NULL,
-    pl_tgl_daftar date NOT NULL,
-    pl_alamat varchar(200) NOT NULL
+CREATE TABLE IF NOT EXISTS customer (
+	cust_id char(4) NOT NULL PRIMARY KEY,
+    cust_name varchar(50) NOT NULL,
+    cust_phone_num varchar(15) NOT NULL,
+    cust_email varchar(50) NOT NULL,
+    cust_registration_date date NOT NULL,
+    cust_address varchar(200) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS jenis_barang (
-	jb_id char(4) NOT NULL PRIMARY KEY,
-    jb_nama varchar(50) NOT NULL
+CREATE TABLE IF NOT EXISTS item_category (
+	ic_id char(4) NOT NULL PRIMARY KEY,
+    ic_name varchar(50) NOT NULL
 );
 
-ALTER TABLE transaksi_pembelian
-ADD pg_id char(4),
-ADD sp_id char(4),
-ADD FOREIGN KEY (pg_id) REFERENCES pegawai(pg_id),
-ADD FOREIGN KEY (sp_id) REFERENCES supplier(sp_id);
+ALTER TABLE purchase_transaction
+ADD emp_id char(4),
+ADD sup_id char(4),
+ADD FOREIGN KEY (emp_id) REFERENCES employee(emp_id),
+ADD FOREIGN KEY (sup_id) REFERENCES supplier(sup_id);
 
-ALTER TABLE transaksi_penjualan
-ADD pl_id char(4),
-ADD pg_id char(4),
-ADD FOREIGN KEY (pl_id) REFERENCES pelanggan(pl_id),
-ADD FOREIGN KEY (pg_id) REFERENCES pegawai(pg_id);
+ALTER TABLE sales_transaction
+ADD cust_id char(4),
+ADD emp_id char(4),
+ADD FOREIGN KEY (cust_id) REFERENCES customer(cust_id),
+ADD FOREIGN KEY (emp_id) REFERENCES employee(emp_id);
 
-ALTER TABLE barang
-ADD jb_id char(4),
-ADD FOREIGN KEY (jb_id) REFERENCES jenis_barang(jb_id);
+ALTER TABLE item
+ADD ic_id char(4),
+ADD FOREIGN KEY (ic_id) REFERENCES item_category(ic_id);
 
-SELECT * FROM pegawai
-SELECT * FROM supplier
-SELECT * FROM pelanggan
-SELECT * FROM jenis_barang
-SELECT * FROM barang
-SELECT * FROM transaksi_pembelian
-SELECT * FROM transaksi_penjualan
+SELECT * FROM employee;
+SELECT * FROM supplier;
+SELECT * FROM customer;
+SELECT * FROM item_category;
+SELECT * FROM item;
+SELECT * FROM purchase_transaction;
+SELECT * FROM sales_transaction;

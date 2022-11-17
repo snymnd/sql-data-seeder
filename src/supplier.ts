@@ -13,10 +13,10 @@ for (let i = 1; i <= 100; i++) {
       .insert()
       .into(tableName)
       .setFields({
-        sp_id: i,
-        sp_nama: faker.name.fullName(),
-        sp_no_telp: faker.phone.number('+628#########'),
-        sp_alamat: faker.address.streetAddress(),
+        sup_id: i,
+        sup_name: faker.name.fullName(),
+        sup_phone_num: faker.phone.number('+628#########'),
+        sup_address: faker.address.streetAddress(),
       })
       .toString();
   

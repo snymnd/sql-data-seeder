@@ -1,77 +1,77 @@
-CREATE TABLE Pegawai (
-    pg_id CHAR(4) NOT NULL PRIMARY KEY,
-    pg_nama VARCHAR(50) NOT NULL,
-    pg_nik CHAR(16) NOT NULL,
-    pg_alamat VARCHAR(200) NOT NULL,
-    pg_no_telp VARCHAR(15) NOT NULL,
-    pg_bagian VARCHAR(50) NOT NULL
+CREATE TABLE employee (
+    emp_id CHAR(4) NOT NULL PRIMARY KEY,
+    emp_name VARCHAR(50) NOT NULL,
+    emp_nik CHAR(16) NOT NULL,
+    emp_address VARCHAR(200) NOT NULL,
+    emp_phone_num VARCHAR(15) NOT NULL,
+    emp_division VARCHAR(50) NOT NULL
 );
  
-CREATE TABLE transaksi_pembelian (
-    t_pembelian_id CHAR(4) NOT NULL PRIMARY KEY,
-    t_pembelian_waktu DATE NOT NULL,
-    total_harga_pembelian FLOAT NOT NULL
+CREATE TABLE purchase_transaction (
+    purchase_t_id CHAR(4) NOT NULL PRIMARY KEY,
+    purchase_t_time DATE NOT NULL,
+    purchase_total_price FLOAT NOT NULL
 );
  
 CREATE TABLE supplier (
-    sp_id CHAR(4) NOT NULL PRIMARY KEY,
-    sp_nama CHAR(50) NOT NULL,
-    sp_no_telp VARCHAR(15) NOT NULL,
-    sp_alamat VARCHAR(200) NOT NULL
+    sup_id CHAR(4) NOT NULL PRIMARY KEY,
+    sup_name CHAR(50) NOT NULL,
+    sup_phone_num VARCHAR(15) NOT NULL,
+    sup_address VARCHAR(200) NOT NULL
 );
  
-CREATE TABLE transaksi_penjualan (
-    t_penjualan_id CHAR(4) NOT NULL PRIMARY KEY,
-    t_penjualan_waktu DATE NOT NULL,
-    total_harga_penjualan FLOAT NOT NULL
+CREATE TABLE sales_transaction (
+    sales_t_id CHAR(4) NOT NULL PRIMARY KEY,
+    sales_t_time DATE NOT NULL,
+    sales_total_price FLOAT NOT NULL
 );
  
-CREATE TABLE barang (
-    brg_id CHAR(4) NOT NULL PRIMARY KEY,
-    brg_nama VARCHAR(50) NOT NULL,
-    brg_harga_jual FLOAT NOT NULL,
-    brg_harga_beli FLOAT NOT NULL,
-    brg_berat VARCHAR(20) NOT NULL,
-    jumlah_stok INT NOT NULL,
-    diskon INT NOT NULL
+CREATE TABLE item (
+    item_id CHAR(4) NOT NULL PRIMARY KEY,
+    item_name VARCHAR(50) NOT NULL,
+    item_sale_price FLOAT NOT NULL,
+    item_purchase_price FLOAT NOT NULL,
+    item_weight VARCHAR(20) NOT NULL,
+    item_stock INT NOT NULL,
+    discount INT NOT NULL
 );
  
-CREATE TABLE pelanggan (
-    pl_id CHAR(4) NOT NULL PRIMARY KEY,
-    pl_nama VARCHAR(50) NOT NULL,
-    pl_no_telp VARCHAR(15) NOT NULL,
-    pl_email VARCHAR(50) NOT NULL,
-    pl_tgl_daftar DATE NOT NULL,
-    pl_alamat VARCHAR(200) NOT NULL
+CREATE TABLE customer (
+    cust_id CHAR(4) NOT NULL PRIMARY KEY,
+    cust_name VARCHAR(50) NOT NULL,
+    cust_phone_num VARCHAR(15) NOT NULL,
+    cust_email VARCHAR(50) NOT NULL,
+    cust_registration_date DATE NOT NULL,
+    cust_address VARCHAR(200) NOT NULL
 );
  
-CREATE TABLE jenis_barang (
-    jb_id CHAR(4) NOT NULL PRIMARY KEY,
-    jb_nama VARCHAR(50) NOT NULL
+CREATE TABLE item_category (
+    ic_id CHAR(4) NOT NULL PRIMARY KEY,
+    ic_name VARCHAR(50) NOT NULL
 );
  
-ALTER TABLE transaksi_pembelian
-ADD pg_id CHAR(4);
-ALTER TABLE transaksi_pembelian
-ADD sp_id CHAR(4);
-ALTER TABLE transaksi_pembelian
-ADD FOREIGN KEY (pg_id) REFERENCES pegawai(pg_id);
-ALTER TABLE transaksi_pembelian
-ADD FOREIGN KEY (sp_id) REFERENCES supplier(sp_id);
+ALTER TABLE purchase_transaction
+ADD emp_id CHAR(4);
+ALTER TABLE purchase_transaction
+ADD sup_id CHAR(4);
+ALTER TABLE purchase_transaction
+ADD FOREIGN KEY (emp_id) REFERENCES employee(emp_id);
+ALTER TABLE purchase_transaction
+ADD FOREIGN KEY (sup_id) REFERENCES supplier(sup_id);
  
-ALTER TABLE transaksi_penjualan
-ADD pl_id CHAR(4);
-ALTER TABLE transaksi_penjualan
-ADD pg_id CHAR(4);
-ALTER TABLE transaksi_penjualan
-ADD FOREIGN KEY (pl_id) REFERENCES pelanggan(pl_id);
-ALTER TABLE transaksi_penjualan
-ADD FOREIGN KEY (pg_id) REFERENCES pegawai(pg_id);
+ALTER TABLE sales_transaction
+ADD cust_id CHAR(4);
+ALTER TABLE sales_transaction
+ADD emp_id CHAR(4);
+ALTER TABLE sales_transaction
+ADD FOREIGN KEY (cust_id) REFERENCES customer(cust_id);
+ALTER TABLE sales_transaction
+ADD FOREIGN KEY (emp_id) REFERENCES employee(emp_id);
  
-ALTER TABLE barang
-ADD jb_id CHAR(4);
-ALTER TABLE barang
-ADD FOREIGN KEY (jb_id) REFERENCES jenis_barang(jb_id);
+ALTER TABLE item
+ADD ic_id CHAR(4);
+ALTER TABLE item
+ADD FOREIGN KEY (ic_id) REFERENCES item_category(ic_id);
  
 SELECT parameter, VALUE
 FROM nls_session_parameters

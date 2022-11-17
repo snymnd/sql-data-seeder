@@ -4,23 +4,23 @@ import * as fs from 'fs';
 
 faker.locale = 'id_ID';
 
-const tableName = 'barang';
+const tableName = 'item';
 
 for (let i = 1; i <= 1000; i++) {
-    console.log('🚀 ~ file: barang.ts ~ line 9 ~ i', i);
+    console.log('🚀 ~ file: item.ts ~ line 9 ~ i', i);
   
     const content = squel
       .insert()
       .into(tableName)
       .setFields({
-        brg_id: i,
-        jb_id: faker.datatype.number({ min: 1, max: 4 }), 
-        brg_nama: faker.commerce.productName() , 
-        brg_harga_jual: faker.commerce.price(), 
-        brg_harga_beli: faker.commerce.price(), 
-        brg_berat: faker.datatype.number(10), 
-        jumlah_stok: faker.datatype.number(1000),
-        diskon: faker.datatype.number({ max: 100 }), 
+        item_id: i,
+        ic_id: faker.datatype.number({ min: 1, max: 4 }), 
+        item_name: faker.commerce.productName() , 
+        item_sale_price: faker.commerce.price(), 
+        item_purchase_price: faker.commerce.price(), 
+        item_weight: faker.datatype.number(10), 
+        item_stock: faker.datatype.number(1000),
+        discount: faker.datatype.number({ max: 100 }), 
       })
       .toString();
   
