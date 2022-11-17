@@ -27,11 +27,11 @@ CREATE TABLE IF NOT EXISTS transaksi_penjualan (
 );
 
 CREATE TABLE IF NOT EXISTS barang (
-	br_id char(4) NOT NULL PRIMARY KEY,
-    br_nama varchar(50) NOT NULL,
-    br_harga_jual float NOT NULL,
-    br_harga_beli float NOT NULL,
-    br_berat varchar(20) NOT NULL,
+	brg_id char(4) NOT NULL PRIMARY KEY,
+    brg_nama varchar(50) NOT NULL,
+    brg_harga_jual float NOT NULL,
+    brg_harga_beli float NOT NULL,
+    brg_berat varchar(20) NOT NULL,
     jumlah_stok int NOT NULL,
     diskon int NOT NULL
 );
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS pelanggan (
     pl_nama varchar(50) NOT NULL,
     pl_no_telp varchar(15) NOT NULL,
     pl_email varchar(50) NOT NULL,
-    pl_tgl_daftar_ date NOT NULL,
+    pl_tgl_daftar date NOT NULL,
     pl_alamat varchar(200) NOT NULL
 );
 

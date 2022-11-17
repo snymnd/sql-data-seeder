@@ -24,7 +24,7 @@ for (let i = 1; i <= 4; i++) {
       })
       .toString();
   
-    fs.writeFile(`generated_script/${tableName}.txt`, content + '\n', { flag: 'a+' }, (err) => {
+    fs.writeFile(`generated_script/${tableName}.sql`, content + ';' + '\n', { flag: 'a+' }, (err) => {
       if (err) {
         console.error(err);
         return;

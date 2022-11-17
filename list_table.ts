@@ -21,8 +21,8 @@ const pegawai = {
 
 const transaksi_pembelian = {
   t_pembelian_id: i,
-  pg_id: faker.datatype.number(100), 
-  sp_id: faker.datatype.number(100), 
+  pg_id: faker.datatype.number({ min: 1, max: 100 }), 
+  sp_id: faker.datatype.number({ min: 1, max: 100 }), 
   t_pembelian_waktu: format(faker.date.past(1), "yyyy-MM-dd'T'HH:mm:ss"),
   total_harga_pembelian: faker.commerce.price(1000, 100000), 
 }
@@ -36,8 +36,8 @@ const supplier = {
 
 const transaksi_penjualan = {
   t_penjualan_id: i,
-  pg_id: faker.datatype.number(100),
-  pl_id: faker.datatype.number(100),
+  pg_id: faker.datatype.number({ min: 1, max: 100 }), 
+  pl_id: faker.datatype.number({ min: 1, max: 100 }), 
   t_penjualan_waktu: format(faker.date.recent(1), "yyyy-MM-dd'T'HH:mm:ss"),
   total_harga_penjualan: faker.commerce.price(1000, 100000),
 }
