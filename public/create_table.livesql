@@ -1,0 +1,84 @@
+CREATE TABLE Pegawai (
+    pg_id CHAR(4) NOT NULL PRIMARY KEY,
+    pg_nama VARCHAR(50) NOT NULL,
+    pg_nik CHAR(16) NOT NULL,
+    pg_alamat VARCHAR(200) NOT NULL,
+    pg_no_telp VARCHAR(15) NOT NULL,
+    pg_bagian VARCHAR(50) NOT NULL
+);
+ 
+CREATE TABLE transaksi_pembelian (
+    t_pembelian_id CHAR(4) NOT NULL PRIMARY KEY,
+    t_pembelian_waktu DATE NOT NULL,
+    total_harga_pembelian FLOAT NOT NULL
+);
+ 
+CREATE TABLE supplier (
+    sp_id CHAR(4) NOT NULL PRIMARY KEY,
+    sp_nama CHAR(50) NOT NULL,
+    sp_no_telp VARCHAR(15) NOT NULL,
+    sp_alamat VARCHAR(200) NOT NULL
+);
+ 
+CREATE TABLE transaksi_penjualan (
+    t_penjualan_id CHAR(4) NOT NULL PRIMARY KEY,
+    t_penjualan_waktu DATE NOT NULL,
+    total_harga_penjualan FLOAT NOT NULL
+);
+ 
+CREATE TABLE barang (
+    brg_id CHAR(4) NOT NULL PRIMARY KEY,
+    brg_nama VARCHAR(50) NOT NULL,
+    brg_harga_jual FLOAT NOT NULL,
+    brg_harga_beli FLOAT NOT NULL,
+    brg_berat VARCHAR(20) NOT NULL,
+    jumlah_stok INT NOT NULL,
+    diskon INT NOT NULL
+);
+ 
+CREATE TABLE pelanggan (
+    pl_id CHAR(4) NOT NULL PRIMARY KEY,
+    pl_nama VARCHAR(50) NOT NULL,
+    pl_no_telp VARCHAR(15) NOT NULL,
+    pl_email VARCHAR(50) NOT NULL,
+    pl_tgl_daftar DATE NOT NULL,
+    pl_alamat VARCHAR(200) NOT NULL
+);
+ 
+CREATE TABLE jenis_barang (
+    jb_id CHAR(4) NOT NULL PRIMARY KEY,
+    jb_nama VARCHAR(50) NOT NULL
+);
+ 
+ALTER TABLE transaksi_pembelian
+ADD pg_id CHAR(4);
+ALTER TABLE transaksi_pembelian
+ADD sp_id CHAR(4);
+ALTER TABLE transaksi_pembelian
+ADD FOREIGN KEY (pg_id) REFERENCES pegawai(pg_id);
+ALTER TABLE transaksi_pembelian
+ADD FOREIGN KEY (sp_id) REFERENCES supplier(sp_id);
+ 
+ALTER TABLE transaksi_penjualan
+ADD pl_id CHAR(4);
+ALTER TABLE transaksi_penjualan
+ADD pg_id CHAR(4);
+ALTER TABLE transaksi_penjualan
+ADD FOREIGN KEY (pl_id) REFERENCES pelanggan(pl_id);
+ALTER TABLE transaksi_penjualan
+ADD FOREIGN KEY (pg_id) REFERENCES pegawai(pg_id);
+ 
+ALTER TABLE barang
+ADD jb_id CHAR(4);
+ALTER TABLE barang
+ADD FOREIGN KEY (jb_id) REFERENCES jenis_barang(jb_id);
+ 
+SELECT parameter, VALUE
+FROM nls_session_parameters
+WHERE parameter = 'NLS_DATE_FORMAT';
+ 
+ALTER SESSION SET nls_date_format = 'RRRR-MM-DD HH24:MI:SS';
+ 
+SELECT VALUE
+FROM nls_session_parameters
+WHERE parameter = 'NLS_DATE_FORMAT';
