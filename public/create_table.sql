@@ -51,10 +51,10 @@ CREATE TABLE IF NOT EXISTS jenis_barang (
 );
 
 ALTER TABLE transaksi_pembelian
-ADD id_pegawai char(4),
-ADD id_supplier char(4),
-ADD FOREIGN KEY (id_pegawai) REFERENCES pegawai(id_pegawai),
-ADD FOREIGN KEY (id_supplier) REFERENCES supplier(id_supplier);
+ADD pg_id char(4),
+ADD sp_id char(4),
+ADD FOREIGN KEY (pg_id) REFERENCES pegawai(pg_id),
+ADD FOREIGN KEY (sp_id) REFERENCES supplier(sp_id);
 
 ALTER TABLE transaksi_penjualan
 ADD id_pelanggan char(4),
