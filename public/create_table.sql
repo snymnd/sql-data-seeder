@@ -65,3 +65,11 @@ ADD FOREIGN KEY (pg_id) REFERENCES pegawai(pg_id);
 ALTER TABLE barang
 ADD jb_id char(4),
 ADD FOREIGN KEY (jb_id) REFERENCES jenis_barang(jb_id);
+
+SELECT * FROM pegawai
+SELECT * FROM supplier
+SELECT * FROM pelanggan
+SELECT * FROM jenis_barang
+SELECT * FROM barang
+SELECT * FROM transaksi_pembelian
+SELECT * FROM transaksi_penjualan
