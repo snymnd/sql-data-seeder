@@ -1,15 +1,15 @@
 CREATE TABLE IF NOT EXISTS Pegawai (
-	id_pegawai char(4) NOT NULL PRIMARY KEY,
-    nama_pegawai varchar(50) NOT NULL,
-    nik_pegawai char(16) NOT NULL,
-    alamat_pegawai varchar(200) NOT NULL,
-    no_telp_pegawai varchar(15) NOT NULL,
-    bagian varchar(50) NOT NULL
+	pg_id char(4) NOT NULL PRIMARY KEY,
+    pg_nama varchar(50) NOT NULL,
+    pg_nik char(16) NOT NULL,
+    pg_alamat varchar(200) NOT NULL,
+    pg_no_telp varchar(15) NOT NULL,
+    pg_bagian varchar(50) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS transaksi_pembelian (
-	id_t_pembelian char(4) NOT NULL PRIMARY KEY,
-    waktu_t_pembelian datetime NOT NULL,
+	t_pembelian_id char(4) NOT NULL PRIMARY KEY,
+    t_pembelian_waktu datetime NOT NULL,
     total_harga_pembelian float NOT NULL
 );
 

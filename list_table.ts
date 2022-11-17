@@ -11,11 +11,11 @@ const pegawai = {
     pg_nik: faker.phone.number('################'),
     pg_alamat: faker.address.streetAddress(),
     pg_no_telp: faker.phone.number('+628#########'),
-    pg_password: faker.internet.password(),
-    pg_bagian: faker.helpers.arrayElement([ //specify content
-        'BAGIAN 1',
-        'BAGIAN 2',
-        'BAGIAN 3',
+    pg_bagian: faker.helpers.arrayElement([ 
+        'Magang',
+        'Karyawan Junior',
+        'Karyawan Senior',
+        'Manager',
       ]),
 }
 
@@ -24,7 +24,7 @@ const transaksi_pembelian = {
   pg_id: i, //need random number
   sp_id: i, //need random number
   t_pembelian_waktu: format(faker.date.past(1), 'yyyy-MM-dd'), //need time?
-  t_pembelian_total_harga: faker.commerce.price(), //apply rules?
+  total_harga_pembelian: faker.commerce.price(), //apply rules?
 }
 
 const supplier = {

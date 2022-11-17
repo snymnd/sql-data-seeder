@@ -9,7 +9,7 @@ const tableName = 'pegawai';
 let a = 0;
 let flag;
 
-for (let i = 1; i <= 1000; i++) {
+for (let i = 1; i <= 100; i++) {
     console.log(i);
   
     if (i % 5 === 0) {
@@ -28,12 +28,12 @@ for (let i = 1; i <= 1000; i++) {
         pg_nik: faker.phone.number('################'),
         pg_alamat: faker.address.streetAddress(),
         pg_no_telp: faker.phone.number('+628#########'),
-        pg_password: faker.internet.password(),
-        pg_bagian: faker.helpers.arrayElement([
-            'BAGIAN 1',
-            'BAGIAN 2',
-            'BAGIAN 3',
-        ]),
+        pg_bagian: faker.helpers.arrayElement([ 
+            'Magang',
+            'Karyawan Junior',
+            'Karyawan Senior',
+            'Manager',
+          ]),
       })
       .toString();
   
