@@ -53,13 +53,13 @@ const barang = {
   diskon: faker.random.numeric(), //percentage?
 }
 
-const pelanggan = { // change to pl
-  pg_id: i,
-  pg_nama: faker.name.fullName(),
-  pg_no_telp: faker.phone.number('+628#########'),
-  pg_email: faker.internet.email(),
-  pg_tgl_daftar: format(faker.date.past(1), 'yyyy-MM-dd'), //need time?
-  pg_alamat: faker.address.streetAddress(),
+const pelanggan = { 
+  pl_id: i,
+  pl_nama: faker.name.fullName(),
+  pl_no_telp: faker.phone.number('+628#########'),
+  pl_email: faker.internet.email(),
+  pl_tgl_daftar: format(faker.date.past(1), 'yyyy-MM-dd'),
+  pl_alamat: faker.address.streetAddress(),
 }
 
 const jenis_barang = {

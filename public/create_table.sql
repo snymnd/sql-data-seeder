@@ -37,12 +37,12 @@ CREATE TABLE IF NOT EXISTS barang (
 );
 
 CREATE TABLE IF NOT EXISTS pelanggan (
-	id_pelanggan char(4) NOT NULL PRIMARY KEY,
-    nama_pelanggan varchar(50) NOT NULL,
-    no_telp_pelanggan varchar(15) NOT NULL,
-    email_pelanggan varchar(50) NOT NULL,
-    tgl_daftar_pelanggan date NOT NULL,
-    alamat_pelanggan varchar(200) NOT NULL
+	pl_id char(4) NOT NULL PRIMARY KEY,
+    pl_nama varchar(50) NOT NULL,
+    pl_no_telp varchar(15) NOT NULL,
+    pl_email varchar(50) NOT NULL,
+    pl_tgl_daftar_ date NOT NULL,
+    pl_alamat varchar(200) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS jenis_barang (
@@ -57,10 +57,10 @@ ADD FOREIGN KEY (pg_id) REFERENCES pegawai(pg_id),
 ADD FOREIGN KEY (sp_id) REFERENCES supplier(sp_id);
 
 ALTER TABLE transaksi_penjualan
-ADD id_pelanggan char(4),
-ADD id_pegawai char(4),
-ADD FOREIGN KEY (id_pelanggan) REFERENCES pelanggan(id_pelanggan),
-ADD FOREIGN KEY (id_pegawai) REFERENCES pegawai(id_pegawai);
+ADD pl_id char(4),
+ADD pg_id char(4),
+ADD FOREIGN KEY (pl_id) REFERENCES pelanggan(pl_id),
+ADD FOREIGN KEY (pg_id) REFERENCES pegawai(pg_id);
 
 ALTER TABLE barang
 ADD id_jenis_barang char(4),
