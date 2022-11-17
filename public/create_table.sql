@@ -21,8 +21,8 @@ CREATE TABLE IF NOT EXISTS supplier (
 );
 
 CREATE TABLE IF NOT EXISTS transaksi_penjualan (
-	id_t_penjualan char(4) NOT NULL PRIMARY KEY,
-    waktu_t_penjualan datetime NOT NULL,
+	t_penjualan_id char(4) NOT NULL PRIMARY KEY,
+    t_penjualan_waktu datetime NOT NULL,
     total_harga_penjualan float NOT NULL
 );
 

@@ -8,15 +8,17 @@ faker.locale = 'id_ID';
 const tableName = 'transaksi_penjualan';
 
 for (let i = 1; i <= 1000; i++) {
-    console.log('🚀 ~ file: penjualan.js ~ line 9 ~ i', i);
+    console.log('🚀 ~ file: transaksi_penjualan.js ~ line 9 ~ i', i);
   
     const content = squel
       .insert()
       .into(tableName)
       .setFields({
         t_penjualan_id: i,
-        t_penjualan_waktu: format(faker.date.past(1), 'yyyy-MM-dd'),
-        t_penjualan_total_harga: faker.commerce.price(),
+        pg_id: faker.datatype.number(100),
+        pl_id: faker.datatype.number(100),
+        t_penjualan_waktu: format(faker.date.recent(1), "yyyy-MM-dd'T'HH:mm:ss"),
+        total_harga_penjualan: faker.commerce.price(1000, 100000),
       })
       .toString();
   

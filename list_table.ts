@@ -36,10 +36,10 @@ const supplier = {
 
 const transaksi_penjualan = {
   t_penjualan_id: i,
-  pg_id: i, //need random number
-  pl_id: i, //need random number
-  t_penjualan_waktu: format(faker.date.past(1), 'yyyy-MM-dd'), //need time?
-  t_penjualan_total_harga: faker.commerce.price(), //apply rules?
+  pg_id: faker.datatype.number(100),
+  pl_id: faker.datatype.number(100),
+  t_penjualan_waktu: format(faker.date.recent(1), "yyyy-MM-dd'T'HH:mm:ss"),
+  total_harga_penjualan: faker.commerce.price(1000, 100000),
 }
 
 const barang = {
