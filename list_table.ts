@@ -44,13 +44,13 @@ const transaksi_penjualan = {
 
 const barang = {
   brg_id: i,
-  jb_id: i, //need random number
+  jb_id: faker.datatype.number({ min: 1, max: 4 }), 
   brg_nama: faker.commerce.product() , //array of element instead?
   brg_harga_jual: faker.commerce.price(), //need rules to harga beli <
   brg_harga_beli: faker.commerce.price(), //need rules to harga jual >
-  brg_berat: faker.random.numeric(), //specify
-  jumlah_stok: faker.random.numeric(),
-  diskon: faker.random.numeric(), //percentage?
+  brg_berat: faker.datatype.number(10), 
+  jumlah_stok: faker.datatype.number(1000),
+  diskon: faker.datatype.number({ max: 100 }), 
 }
 
 const pelanggan = { 

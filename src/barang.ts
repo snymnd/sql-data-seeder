@@ -14,12 +14,13 @@ for (let i = 1; i <= 1000; i++) {
       .into(tableName)
       .setFields({
         brg_id: i,
-        brg_nama: faker.commerce.product() ,
-        brg_harga_jual: faker.commerce.price(),
-        brg_harga_beli: faker.commerce.price(),
-        brg_berat: faker.random.numeric(),
-        jumlah_stok: faker.random.numeric(),
-        diskon: faker.random.numeric(),
+        jb_id: faker.datatype.number({ min: 1, max: 4 }), 
+        brg_nama: faker.commerce.product() , 
+        brg_harga_jual: faker.commerce.price(), 
+        brg_harga_beli: faker.commerce.price(), 
+        brg_berat: faker.datatype.number(10), 
+        jumlah_stok: faker.datatype.number(1000),
+        diskon: faker.datatype.number({ max: 100 }), 
       })
       .toString();
   
