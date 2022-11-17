@@ -15,7 +15,7 @@ for (let i = 1; i <= 1000; i++) {
       .setFields({
         brg_id: i,
         jb_id: faker.datatype.number({ min: 1, max: 4 }), 
-        brg_nama: faker.commerce.product() , 
+        brg_nama: faker.commerce.productName() , 
         brg_harga_jual: faker.commerce.price(), 
         brg_harga_beli: faker.commerce.price(), 
         brg_berat: faker.datatype.number(10), 
