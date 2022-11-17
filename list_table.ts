@@ -64,9 +64,10 @@ const pelanggan = {
 
 const jenis_barang = {
   jb_id: i,
-  jb_nama: faker.helpers.arrayElement([ //specify content
-    'JENIS 1',
-    'JENIS 2',
-    'JENIS 3',
+  jb_nama: faker.helpers.arrayElement([ 
+    'Alat Menulis',
+    'Alat Menghapus',
+    'Peralatan Pendukung',
+    'Peralatan Kantor',
   ]),
 }

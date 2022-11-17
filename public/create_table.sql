@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS pelanggan (
 );
 
 CREATE TABLE IF NOT EXISTS jenis_barang (
-	id_jenis_barang char(4) NOT NULL PRIMARY KEY,
-    nama_jenis varchar(50) NOT NULL
+	jb_id char(4) NOT NULL PRIMARY KEY,
+    jb_nama varchar(50) NOT NULL
 );
 
 ALTER TABLE transaksi_pembelian
@@ -63,5 +63,5 @@ ADD FOREIGN KEY (pl_id) REFERENCES pelanggan(pl_id),
 ADD FOREIGN KEY (pg_id) REFERENCES pegawai(pg_id);
 
 ALTER TABLE barang
-ADD id_jenis_barang char(4),
-ADD FOREIGN KEY (id_jenis_barang) REFERENCES jenis_barang(id_jenis_barang);
+ADD jb_id char(4),
+ADD FOREIGN KEY (jb_id) REFERENCES jenis_barang(jb_id);

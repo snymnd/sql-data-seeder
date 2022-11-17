@@ -7,7 +7,7 @@ faker.locale = 'id_ID';
 
 const tableName = 'jenis_barang';
 
-for (let i = 1; i <= 1000; i++) {
+for (let i = 1; i <= 4; i++) {
     console.log('🚀 ~ file: jenis_barang.ts ~ line 9 ~ i', i);
   
     const content = squel
@@ -15,10 +15,11 @@ for (let i = 1; i <= 1000; i++) {
       .into(tableName)
       .setFields({
         jb_id: i,
-        jb_nama: faker.helpers.arrayElement([
-          'JENIS 1',
-          'JENIS 2',
-          'JENIS 3',
+        jb_nama: faker.helpers.arrayElement([ 
+          'Alat Menulis',
+          'Alat Menghapus',
+          'Peralatan Pendukung',
+          'Peralatan Kantor',
         ]),
       })
       .toString();
