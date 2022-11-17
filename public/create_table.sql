@@ -14,10 +14,10 @@ CREATE TABLE IF NOT EXISTS transaksi_pembelian (
 );
 
 CREATE TABLE IF NOT EXISTS supplier (
-	id_supplier char(4) NOT NULL PRIMARY KEY,
-    nama_supplier char(50) NOT NULL,
-    no_telp_supplier varchar(15) NOT NULL,
-    alamat_supplier varchar(200) NOT NULL
+	sp_id char(4) NOT NULL PRIMARY KEY,
+    sp_nama char(50) NOT NULL,
+    sp_no_telp varchar(15) NOT NULL,
+    sp_alamat varchar(200) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS transaksi_penjualan (

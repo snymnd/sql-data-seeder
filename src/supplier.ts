@@ -6,7 +6,7 @@ faker.locale = 'id_ID';
 
 const tableName = 'supplier';
 
-for (let i = 1; i <= 1000; i++) {
+for (let i = 1; i <= 100; i++) {
     console.log('🚀 ~ file: supplier.ts ~ line 9 ~ i', i);
   
     const content = squel
